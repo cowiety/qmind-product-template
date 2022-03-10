@@ -1,0 +1,27 @@
+.page-content {
+    margin: 5%;
+    display: block;
+    justify-content:center;
+    align-items: center;
+
+    &__logo {
+        height: 25px;
+        width: auto;
+        margin-bottom: 30px;
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 30px;
+        width: 100%;
+        border-bottom: 1px solid rgb(172, 172, 172);
+        margin-bottom: 5vh;
+        color: #2A69E7;
+    }
+
+    &__projects {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
