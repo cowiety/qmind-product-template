@@ -1,8 +1,10 @@
 # qmind-product-template
 
 ## How to run locally
+First, ensure you have access to a linux shell (Mac users can use Terminal). You will also need to have pip, python, and npm installed.
+
 1. Clone this repository to your device
-2. Install the necessary Python modules by navigating to `backend` and using the command `pip install -r requirements.txt`. It may be a good idea to use a virtual environment.
+2. Install the necessary Python modules by navigating to `backend` and using the command `pip install -r requirements.txt`. It may be a good idea to use a [virtual environment](https://docs.python.org/3/library/venv.html#creating-virtual-environments), and activate it with `source <venv>/bin/activate`.
 3. Start the Django server with `python manage.py runserver`.
 4. In a new window, install the frontend libraries by navigating to `frontend` and using the command `npm install`.
 5. Start the frontend server with `npm start`.
