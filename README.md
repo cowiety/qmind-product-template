@@ -4,10 +4,14 @@
 First, ensure you have access to a linux shell (Mac users can use Terminal). You will also need to have pip, python, and npm installed.
 
 1. Clone this repository to your device
-2. Install the necessary Python modules by navigating to `backend` and using the command `pip install -r requirements.txt`. It may be a good idea to use a [virtual environment](https://docs.python.org/3/library/venv.html#creating-virtual-environments), and activate it with `source <venv>/bin/activate`.
-3. Start the Django server with `python manage.py runserver`.
-4. In a new window, install the frontend libraries by navigating to `frontend` and using the command `npm install`.
-5. Start the frontend server with `npm start`.
+2. You should use a virtual environment to keep the Python modules required for your project distinct from others on your device and avoid version issues. 
+- On Mac/Linux, open your shell and navigate to a location outside of your project directory where you wish to install your Python modules
+- Use the command `python3 -m venv <name_of_env>` to create your virtual environment directory
+- Activate your virtual environment with the command `source <name_of_env>/bin/activate`
+3. Once your virtul environment has been activated (you will need to reactivate it each time you open a new shell window), navigate to the `backend` project folder and use the command `pip install -r requirements.txt` to install the required Python modules for the project
+4. Start the Django server with `python manage.py runserver`.
+5. In a new window, install the frontend libraries by navigating to `frontend` and using the command `npm install`.
+6. Start the frontend server with `npm start`.
 
 Navigate to `localhost:3000/` in your browser to view the app homepage. Select either of the sample projects to see what a computer vision project or dashboard project would look like (main difference lies in the "demo" tab).
 
