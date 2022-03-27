@@ -11,7 +11,15 @@ First, ensure you have access to a linux shell (Mac users can use Terminal). You
 3. Once your virtul environment has been activated (you will need to reactivate it each time you open a new shell window), navigate to the `backend` project folder and use the command `pip install -r requirements.txt` to install the required Python modules for the project
 4. Start the Django server with `python manage.py runserver`.
 5. In a new window, install the frontend libraries by navigating to `frontend` and using the command `npm install`.
-6. Start the frontend server with `npm start`.
+- If you recieve an error saying `The package-lock.json file was created with an old version of npm`, try the following:
+  - Downgrade npm: `npm install -g npm@6.14.11`
+  - Delete the `package-lock.json` file and the `node_modules` folder located in the `frontend` folder, then empty your trash bin
+  - Type `npm -v` to ensure you are now running npm v6.14.11
+  - Try `npm install` again
+- If you recieve an error related to `node-sass`:
+  - You must ensure your version of `node-sass` is compatible with your current version of `node`. Compatibility can be checked [here](https://www.npmjs.com/package/node-sass)
+  - Known working versions of these for this project: `Node v14.16.0` with `node-sass v4.14.1`
+7. Start the frontend server with `npm start`.
 
 Navigate to `localhost:3000/` in your browser to view the app homepage. Select either of the sample projects to see what a computer vision project or dashboard project would look like (main difference lies in the "demo" tab).
 
