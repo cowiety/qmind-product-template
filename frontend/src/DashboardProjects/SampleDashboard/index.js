@@ -98,7 +98,7 @@ const SampleDashboard = () => {
                         <div className={`${projectName}__header-top-row-text`}><p>Design</p></div>
                     </div>
                     <div className={`${projectName}__header-bottom-row`}>
-                        <p>Sample Project Name</p>
+                        <p>Energy Demand Forecasting</p>
                     </div>
                 </div>
             </div>
