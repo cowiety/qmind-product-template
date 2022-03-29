@@ -8,7 +8,11 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 
 // Image imports
-import headshot from './sample_image.jpeg';
+import joel from './joel_cross.jpeg';
+import scott from './scott_justason.jpeg';
+import tibet from './tibet_cem_gebes.jpeg';
+import tyler from './tyler_cowie.jpeg';
+
 import logoImage from './logo_image.png';
 import logoText from './logo_text.png';
 
@@ -106,23 +110,33 @@ const SampleDashboard = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className={`${projectName}__team-member`}>
+                        {/* Tyler */}
                         <div className={`${projectName}__team-member-wrapper`}>
-                            <img className={`${projectName}__team-member-headshot`} src={headshot} />
-                            <p className={`${projectName}__team-member-name`}>Sample Name</p>
-                            <p>3rd Year Computer Engineering</p>
-                            <a href="https://www.linkedin.com">LinkedIn</a>
+                            <img className={`${projectName}__team-member-headshot`} src={tyler} />
+                            <p className={`${projectName}__team-member-name`}>Tyler Cowie</p>
+                            <p>3rd Year Electrical Engineering</p>
+                            <a href="https://www.linkedin.com/in/cowiety/">LinkedIn</a>
                         </div>
+                        {/* Joel */}
                         <div className={`${projectName}__team-member-wrapper`}>
-                            <img className={`${projectName}__team-member-headshot`} src={headshot} />
-                            <p className={`${projectName}__team-member-name`}>Sample Name</p>
-                            <p>3rd Year Computing</p>
-                            <a href="https://www.linkedin.com">LinkedIn</a>
+                            <img className={`${projectName}__team-member-headshot`} src={joel} />
+                            <p className={`${projectName}__team-member-name`}>Joel Cross</p>
+                            <p>4th Year Computing</p>
+                            <a href="https://www.linkedin.com/in/joeldcross/">LinkedIn</a>
                         </div>
+                        {/* Tibet */}
                         <div className={`${projectName}__team-member-wrapper`}>
-                            <img className={`${projectName}__team-member-headshot`} src={headshot} />
-                            <p className={`${projectName}__team-member-name`}>Sample Name</p>
-                            <p>4th Year Electrical Engineering</p>
-                            <a href="https://www.linkedin.com">LinkedIn</a>
+                            <img className={`${projectName}__team-member-headshot`} src={tibet} />
+                            <p className={`${projectName}__team-member-name`}>Tibet Cem Gebes</p>
+                            <p>4th Year Philosophy</p>
+                            <a href="https://www.linkedin.com/in/tibet-cem-gebes-932431127/">LinkedIn</a>
+                        </div>
+                        {/* Scott */}
+                        <div className={`${projectName}__team-member-wrapper`}>
+                            <img className={`${projectName}__team-member-headshot`} src={scott} />
+                            <p className={`${projectName}__team-member-name`}>Scott Justason</p>
+                            <p>3rd Year Apple Math (Comp)</p>
+                            <a href="https://www.linkedin.com/in/scott-justason-823b91209/">LinkedIn</a>
                         </div>
                     </div>
                 </AccordionDetails>
