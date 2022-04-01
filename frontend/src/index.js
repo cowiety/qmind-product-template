@@ -5,7 +5,7 @@ import {
     Routes,
     Route
 } from "react-router-dom"; 
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 import Dashboard from './Dashboard/index.js';
