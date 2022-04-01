@@ -8,8 +8,7 @@ import {
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import SampleDashboard from './DashboardProjects/SampleDashboard/index.js';
-import SampleCV from './CVProjects/SampleCV/index.js';
+import Dashboard from './Dashboard/index.js';
 
 import './index.scss';
 
@@ -17,9 +16,7 @@ ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App />} />
-                <Route path="/dashboard1" element={<SampleDashboard/>} />
-                <Route path="/cv1" element={<SampleCV/>} />
+                <Route path="/" element={<Dashboard/>} />
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,

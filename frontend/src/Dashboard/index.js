@@ -21,9 +21,9 @@ import './index.scss';
 
 
 // Please rename "SampleDashboard" here as well as at the bottom of this file
-const SampleDashboard = () => {
+const Dashboard = () => {
     // Please set to unique project identifier (i.e. "energy-dashboard") and do the same in the SCSS file
-    let projectName = "PROJECT-NAME-HERE"
+    let projectName = "Power-Demand-Forecasting"
 
     // Sample data to demostrate the recharts library functionality
     const data = [
@@ -205,4 +205,4 @@ const SampleDashboard = () => {
 }
 
 // Please change to component name decided upon at top of the code
-export default SampleDashboard;
+export default Dashboard;
