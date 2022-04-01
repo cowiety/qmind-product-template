@@ -4,6 +4,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 import pandas as pd
 import numpy as np
+import getDemand
+import getHoliday
+import getWeather
 
 def normalize(data):
   data_mean = data[:].mean(axis=0)
@@ -12,16 +15,18 @@ def normalize(data):
 
 # Class based view to produce new model data
 class Data_Creation(APIView):
+
+    def get(self, request):
+        items = Item.objects.all()
+        serializer = ItemSerializer(items, many=True)
+        return Response(serializer.data)
+
     def post(self, request, format=None):
         data = request.data
 
-        # open uploaded csv file and generate numpy array from file
-        demand_file = open('Demand.csv')
-        demand = np.genfromtxt(demand_file, delimiter=',', skip_header=1, usecols=(0))
-        weather_file = open('Weather.csv')
-        weather = np.genfromtxt(weather_file, delimiter=',', skip_header=1, usecols=(1, 2, 3, 4))
-        holiday_file = open('isHoliday.csv')
-        holiday = np.genfromtxt(holiday_file, delimiter=',', skip_header=1, usecols=(1))
+        demand = getDemand().to_numpy()
+        holday = getHoliday().to_numpy()
+        weather = getWeather().to_numpy()
 
         # normalize weather and demand data
         weather = normalize(weather)
@@ -47,5 +52,8 @@ class Data_Creation(APIView):
             'humidity': humidity.tolist(),
             'wind': wind.tolist()
         }
+
+        with open('input.json', "w") as f:
+            json.dump(input, f)
 
         return Response(input, status=200)

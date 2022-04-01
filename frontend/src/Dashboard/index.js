@@ -1,6 +1,7 @@
 // System imports
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import * as settings from '../settings';
 
 // Third-party imports (please seek permission before installing other libraries)
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
@@ -19,13 +20,32 @@ import logoText from './logo_text.png';
 // Stylesheet import
 import './index.scss';
 
-
-// Please rename "SampleDashboard" here as well as at the bottom of this file
 const Dashboard = () => {
     // Please set to unique project identifier (i.e. "energy-dashboard") and do the same in the SCSS file
     let projectName = "Power-Demand-Forecasting"
+	
+	const prediction = React.useState(null)
+	
+    // API call example to fetch data on page load (sets myData to API response)
+    const [myData, setMyData] = useState([])
+    useEffect(() => {
+        axios.get('http://localhost:8000')
+            .then(response => { setMyData(response.data) })
+    }, []);
 
-    // Sample data to demostrate the recharts library functionality
+    const handlePredict = event => {
+		
+		let url = settings.API_SERVER + '/api/predict/';
+		let method = 'post';
+		let config = {method, url};
+		
+		axios(config).then(
+            response => {console.log(response);
+            }).catch(
+                error => {console.log(error)});
+    }
+	
+	// Sample data to demostrate the recharts library functionality
     const data = [
         {
             "name": "Page A",
@@ -70,14 +90,6 @@ const Dashboard = () => {
             "amt": 2100
         }
     ]
-
-    // API call example to fetch data on page load (sets myData to API response)
-    const [myData, setMyData] = useState([])
-    useEffect(() => {
-        axios.get('http://localhost:8000/projects/')
-            .then(response => { setMyData(response.data) })
-    }, []);
-
 
     return (
         // Page content container
@@ -199,7 +211,7 @@ const Dashboard = () => {
                     </div>
                 </AccordionDetails>
             </Accordion>
-
+			
         </div>
     );
 }

@@ -23,6 +23,12 @@ def flatten_list(_2d_list):
 # Create your views here.
 # Class based view to predict based on IRIS model
 class Demand_Model_Predict(APIView):
+    
+    def get(self, request, format=None):
+        response = requests.get('./webScraper/json')
+        model_data = response.json()
+        return Response(model_data, status=200)
+    
     def post(self, request, format=None):
         data = request.data
         
