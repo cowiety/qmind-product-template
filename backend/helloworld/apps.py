@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class WebscraperConfig(AppConfig):
+class HelloworldConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'webScraper'
+    name = 'helloworld'

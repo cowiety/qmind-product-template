@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dashboard import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('prediction.urls')),
+    path('predict/', views.Demand_Model_Predict.as_view(), name = 'api_predict'),
 ]

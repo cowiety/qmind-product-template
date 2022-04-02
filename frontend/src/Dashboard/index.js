@@ -1,12 +1,20 @@
 // System imports
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import axios from 'axios'
-import * as settings from '../settings';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ReferenceLine,
+} from 'recharts';
 
 // Third-party imports (please seek permission before installing other libraries)
 import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
 
 // Image imports
 import joel from './joel_cross.jpeg';
@@ -24,71 +32,145 @@ const Dashboard = () => {
     // Please set to unique project identifier (i.e. "energy-dashboard") and do the same in the SCSS file
     let projectName = "Power-Demand-Forecasting"
 	
-	const prediction = React.useState(null)
-	
     // API call example to fetch data on page load (sets myData to API response)
     const [myData, setMyData] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:8000')
-            .then(response => { setMyData(response.data) })
+        axios.post('http://localhost:8000/predict/')
+            .then(response => { setMyData(response.data)}
+		)
     }, []);
-
-    const handlePredict = event => {
-		
-		let url = settings.API_SERVER + '/api/predict/';
-		let method = 'post';
-		let config = {method, url};
-		
-		axios(config).then(
-            response => {console.log(response);
-            }).catch(
-                error => {console.log(error)});
-    }
 	
 	// Sample data to demostrate the recharts library functionality
     const data = [
         {
-            "name": "Page A",
-            "uv": 4000,
-            "pv": 2400,
-            "amt": 2400
+            "name": "0:00",
+            "Forecasted Demand": myData[0],
+            "Real Demand": 40,
         },
         {
-            "name": "Page B",
-            "uv": 3000,
-            "pv": 1398,
-            "amt": 2210
+            "name": "1:00",
+            "Forecasted Demand": myData[1],
+            "Real Demand": 41,
         },
         {
-            "name": "Page C",
-            "uv": 2000,
-            "pv": 9800,
-            "amt": 2290
+            "name": "3:00",
+            "Forecasted Demand": myData[2],
+            "Real Demand": 42,
         },
         {
-            "name": "Page D",
-            "uv": 2780,
-            "pv": 3908,
-            "amt": 2000
+            "name": "4:00",
+            "Forecasted Demand": myData[3],
+            "Real Demand": 43,
         },
         {
-            "name": "Page E",
-            "uv": 1890,
-            "pv": 4800,
-            "amt": 2181
+            "name": "5:00",
+            "Forecasted Demand": myData[4],
+            "Real Demand": 44,
         },
         {
-            "name": "Page F",
-            "uv": 2390,
-            "pv": 3800,
-            "amt": 2500
+            "name": "6:00",
+            "Forecasted Demand": myData[5],
+            "Real Demand": 45,
         },
         {
-            "name": "Page G",
-            "uv": 3490,
-            "pv": 4300,
-            "amt": 2100
-        }
+            "name": "7:00",
+            "Forecasted Demand": myData[6],
+            "Real Demand": 46,
+          
+        },
+		{
+            "name": "8:00",
+            "Forecasted Demand": myData[7],
+            "Real Demand": 47,
+          
+        },
+		{
+            "name": "9:00",
+            "Forecasted Demand": myData[8],
+            "Real Demand": 48,
+            
+        },
+		{
+            "name": "10:00",
+            "Forecasted Demand": myData[9],
+            "Real Demand": 49,
+           
+        },
+		{
+            "name": "11:00",
+            "Forecasted Demand": myData[10],
+            "Real Demand": 410,
+           
+        },
+		{
+            "name": "12:00",
+            "Forecasted Demand": myData[11],
+            "Real Demand": 411,
+          
+        },
+		{
+            "name": "13:00",
+            "Forecasted Demand": myData[12],
+            "Real Demand": 40,
+
+        },
+		{
+            "name": "14:00",
+            "Forecasted Demand": myData[13],
+            "Real Demand": 40,
+
+        },
+		{
+            "name": "15:00",
+            "Forecasted Demand": myData[14],
+            "Real Demand": 40,
+
+        },
+		{
+            "name": "16:00",
+            "Forecasted Demand": myData[15],
+            "Real Demand": 40,
+        },
+		{
+            "name": "17:00",
+            "Forecasted Demand": myData[16],
+            "Real Demand": 40,
+        },
+		{
+            "name": "18:00",
+            "Forecasted Demand": myData[17],
+            "Real Demand": 40,
+        },
+		{
+            "name": "19:00",
+            "Forecasted Demand": myData[18],
+            "Real Demand": 40,
+        },
+		{
+            "name": "20:00",
+            "Forecasted Demand": myData[19],
+            "Real Demand": 40,
+        },
+		{
+            "name": "21:00",
+            "Forecasted Demand": myData[20],
+            "Real Demand": 40,
+        },
+		{
+            "name": "22:00",
+            "Forecasted Demand": myData[21],
+            "Real Demand": 40,
+        },
+		{
+            "name": "23:00",
+            "Forecasted Demand": myData[22],
+            "Real Demand": 40,
+        },
+		{
+            "name": "24:00",
+            "Forecasted Demand": myData[23],
+            "Real Demand": 40,
+        },
     ]
 
     return (
@@ -160,7 +242,7 @@ const Dashboard = () => {
                     Project Description
                 </AccordionSummary>
                 <AccordionDetails>
-                    The amount of energy drawn from the power grid can be unpredictable. Analogous to the stock market, Ontario’s energy demand causes fluctuations in its cost throughout the day. To manage this demand, Ontario’s grid operator has incentives in place for limiting power consumption during peak demand hours. Queen’s University aims to meet these incentives by using their behind-the-meter generation while demand is high. By minimizing the power drawn from the grid at the right times, Queen’s University can potentially save $1M annually. However, it is challenging to anticipate when peak demand hours might be. Electricity demand is influenced by a variety of factors, such as the season, temperature and day of the week. The goal of this work is to consider these factors in a recursive neural network to predict the times of peak electricity demand. The team will implement this model in a dashboard, allowing Queen’s Energy Management to determine when peak demand is most likely each day.
+                    The amount of energy drawn from the power grid can be unpredictable. Analogous to the stock market, Ontario’s energy demand causes fluctuations in its cost throughout the day. To manage this demand, Ontario’s grid operator has incentives in place for limiting power consumption during peak demand hours. Queen’s University aims to meet these incentives by using their behind-the-meter generation while demand is high. By minimizing the power drawn from the grid at the right times, Queen’s University can potentially save $1M annually. However, electricity demand is influenced by a variety of factors, such as the season, temperature and day of the week. The goal of this work is to consider these factors in a recursive neural network to predict the times of peak electricity demand. The team will implement this model in a dashboard, allowing Queen’s Energy Management to determine when peak demand is most likely each day.
                 </AccordionDetails>
             </Accordion>
 
@@ -181,8 +263,7 @@ const Dashboard = () => {
                     Our Model
                 </AccordionSummary>
                 <AccordionDetails>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    A typical RNN doesn’t carry the past influences in their 'raw' potentials; rather, with each set of inputs, a value loses its influence. Conversely, in our LSTM model, each LSTM cell considers a secondary value descending from the previous neuron. This is achieved through the implementation of a new input: a memory input. In an LSTM model, two inputs (input t and output t-1) are inserted into the activation function, which enables the model to have long-term memory. This memory could allow the model to remember important relationships, such as the gender of a subject or a vector of sequential data. When the model encounters something new that's relevant, it will reconsider what has been memorized thus far to produce a more accurate output. The LSTM implements this by decreasing the influence of older inputs in favour of the more recent observation.
                 </AccordionDetails>
             </Accordion>
 
@@ -193,20 +274,29 @@ const Dashboard = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className={`${projectName}__demo`}>
-                        <p>Check out the Recharts API <a href='https://recharts.org/en-US/examples'>here</a>.</p>
                         <div className={`${projectName}__demo-chart-container`}>
-                            <p className={`${projectName}__demo-chart-title`}>Demo Chart Title</p>
-                            <p className={`${projectName}__demo-chart-desc`}>This is the description for the demo chart.</p>
-                            <LineChart width={730} height={250} data={data}
-                                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Legend />
-                                <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                                <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-                            </LineChart>
+                            <p className={`${projectName}__demo-chart-title`}>Ontario Energy Demand</p>
+                            <p className={`${projectName}__demo-chart-desc`}>This plot compares what our AI model predicts the demand to be with the actual values. </p>
+                            <LineChart
+							  width={800}
+							  height={300}
+							  data={data}
+							  margin={{
+								top: 20,
+								right: 50,
+								left: 20,
+								bottom: 5,
+							  }}
+							>
+							  <CartesianGrid strokeDasharray="3 3" />
+							  <XAxis dataKey="name" />
+							  <YAxis type="number" domain={[10000, 30000]} />
+							  <Tooltip />
+							  <Legend />
+							  <ReferenceLine y={22000} label="Very High Demand" stroke="red" />
+							  <Line type="monotone" dataKey="Forecasted Demand" stroke="#8884d8" />
+							  <Line type="monotone" dataKey="Real Demand" stroke="#82ca9d" />
+							</LineChart>
                         </div>
                     </div>
                 </AccordionDetails>
