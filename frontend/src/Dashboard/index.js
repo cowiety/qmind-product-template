@@ -45,131 +45,98 @@ const Dashboard = () => {
         {
             "name": "0:00",
             "Forecasted Demand": myData[0],
-            "Real Demand": 40,
         },
         {
             "name": "1:00",
             "Forecasted Demand": myData[1],
-            "Real Demand": 41,
         },
         {
             "name": "3:00",
             "Forecasted Demand": myData[2],
-            "Real Demand": 42,
         },
         {
             "name": "4:00",
             "Forecasted Demand": myData[3],
-            "Real Demand": 43,
         },
         {
             "name": "5:00",
             "Forecasted Demand": myData[4],
-            "Real Demand": 44,
         },
         {
             "name": "6:00",
             "Forecasted Demand": myData[5],
-            "Real Demand": 45,
         },
         {
             "name": "7:00",
             "Forecasted Demand": myData[6],
-            "Real Demand": 46,
-          
         },
 		{
             "name": "8:00",
-            "Forecasted Demand": myData[7],
-            "Real Demand": 47,
-          
+            "Forecasted Demand": myData[7],          
         },
 		{
             "name": "9:00",
-            "Forecasted Demand": myData[8],
-            "Real Demand": 48,
-            
+            "Forecasted Demand": myData[8],            
         },
 		{
             "name": "10:00",
-            "Forecasted Demand": myData[9],
-            "Real Demand": 49,
-           
+            "Forecasted Demand": myData[9],          
         },
 		{
             "name": "11:00",
-            "Forecasted Demand": myData[10],
-            "Real Demand": 410,
-           
+            "Forecasted Demand": myData[10],           
         },
 		{
             "name": "12:00",
-            "Forecasted Demand": myData[11],
-            "Real Demand": 411,
-          
+            "Forecasted Demand": myData[11],         
         },
 		{
             "name": "13:00",
             "Forecasted Demand": myData[12],
-            "Real Demand": 40,
-
         },
 		{
             "name": "14:00",
             "Forecasted Demand": myData[13],
-            "Real Demand": 40,
-
         },
 		{
             "name": "15:00",
             "Forecasted Demand": myData[14],
-            "Real Demand": 40,
-
         },
 		{
             "name": "16:00",
-            "Forecasted Demand": myData[15],
-            "Real Demand": 40,
-        },
+            "Forecasted Demand": myData[15],        
+		},
 		{
             "name": "17:00",
             "Forecasted Demand": myData[16],
-            "Real Demand": 40,
         },
 		{
             "name": "18:00",
             "Forecasted Demand": myData[17],
-            "Real Demand": 40,
         },
 		{
             "name": "19:00",
             "Forecasted Demand": myData[18],
-            "Real Demand": 40,
         },
 		{
             "name": "20:00",
             "Forecasted Demand": myData[19],
-            "Real Demand": 40,
         },
 		{
             "name": "21:00",
             "Forecasted Demand": myData[20],
-            "Real Demand": 40,
         },
 		{
             "name": "22:00",
             "Forecasted Demand": myData[21],
-            "Real Demand": 40,
         },
 		{
             "name": "23:00",
             "Forecasted Demand": myData[22],
-            "Real Demand": 40,
         },
 		{
             "name": "24:00",
             "Forecasted Demand": myData[23],
-            "Real Demand": 40,
         },
     ]
 
@@ -277,7 +244,7 @@ const Dashboard = () => {
                             <p className={`${projectName}__demo-chart-title`}>Ontario Energy Demand</p>
                             <p className={`${projectName}__demo-chart-desc`}>This plot compares what our AI model predicts the demand to be with the actual values. </p>
                             <LineChart
-							  width={800}
+							  width={900}
 							  height={300}
 							  data={data}
 							  margin={{
@@ -289,12 +256,12 @@ const Dashboard = () => {
 							>
 							  <CartesianGrid strokeDasharray="3 3" />
 							  <XAxis dataKey="name" />
-							  <YAxis type="number" domain={[10000, 30000]} />
+							  <YAxis type="number" domain={[13000, 19000]} />
 							  <Tooltip />
 							  <Legend />
-							  <ReferenceLine y={22000} label="Very High Demand" stroke="red" />
+							  <ReferenceLine y={17000} label="Very High Demand" stroke="red" />
 							  <Line type="monotone" dataKey="Forecasted Demand" stroke="#8884d8" />
-							  <Line type="monotone" dataKey="Real Demand" stroke="#82ca9d" />
+							  /*<Line type="monotone" dataKey="Real Demand" stroke="#82ca9d" />*/
 							</LineChart>
                         </div>
                     </div>

@@ -18,7 +18,7 @@ cities = {
     "Kingston": [44.2298, -76.481, 117660]
 }
 total_pop = 9187049
-api_key = "ffe15c3fc982bc7ae70c6edfa2fc779c"
+api_key = "1ae675d5ed1ea683ef55260eef326480"
 
 
 def get_forecast_weather(city):
