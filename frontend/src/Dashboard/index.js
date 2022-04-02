@@ -252,8 +252,7 @@ const Dashboard = () => {
                     Our Data
                 </AccordionSummary>
                 <AccordionDetails>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    A substantial portion of Ontario’s energy demand is dependent on the weather. After researching the correlation between historical weather data and energy demand, it became obvious that the price of electricity is sensitive to short-term fluctuations in climate or weather conditions. Because of this fact the dominating piece of data driving our LSTM model is weather data collected from the 10 most populous cities in Ontario from an OpenWeather API. The historical data from these 10 cities was combined into a weighted average that we used to train our model. After testing this model just using weather data, we found that it was already more accurate than a statistical ARIMA model. To make further improvements, we added holiday data to our model as we found that also had an impact on energy demand for a given day. If we were to continue this project, we could do more research on how factors impacting energy demand and include them in our model's testing dataset.
                 </AccordionDetails>
             </Accordion>
 
